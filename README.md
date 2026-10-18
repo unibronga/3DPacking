@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshot.png" alt="3DPacking — storage overview in the Graphite theme" width="900">
+  <img src="docs/hero.png" alt="3DPacking in the PixelArt theme: a storeroom with a shelving unit, boxes and a suitcase" width="900">
 </p>
 
 ## Why
@@ -46,7 +46,7 @@ You know there’s a box of cables *somewhere* in the storeroom. 3DPacking keeps
 - 🌍 **Seven languages** — English, Русский, Українська, Deutsch, Nederlands, Français, Español — including the menu and the built-in help (`F1` or `?`).
 
 <p align="center">
-  <img src="docs/screenshot-pixelart.png" alt="3DPacking in the PixelArt theme" width="900">
+  <img src="docs/screenshot.png" alt="3DPacking — storage overview in the Graphite theme" width="900">
 </p>
 
 ## Download

@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="screenshot.png" alt="3DPacking: Lagerübersicht im Design Graphit" width="900">
+  <img src="hero.png" alt="3DPacking im Design PixelArt: ein Abstellraum mit Regal, Kartons und Koffer" width="900">
 </p>
 
 ## Wozu
@@ -46,7 +46,7 @@ Sie wissen, dass der Karton mit den Kabeln *irgendwo* im Abstellraum steht. 3DPa
 - 🌍 **Sieben Sprachen** — English, Русский, Українська, Deutsch, Nederlands, Français, Español — inklusive Menü und eingebauter Hilfe (`F1` oder `?`).
 
 <p align="center">
-  <img src="screenshot-pixelart.png" alt="3DPacking im Design PixelArt" width="900">
+  <img src="screenshot.png" alt="3DPacking: Lagerübersicht im Design Graphit" width="900">
 </p>
 
 ## Download

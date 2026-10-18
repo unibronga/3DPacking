@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="screenshot.png" alt="3DPacking: overzicht van de opslag in het thema Grafiet" width="900">
+  <img src="hero.png" alt="3DPacking in het thema PixelArt: een berging met stellingkast, dozen en koffer" width="900">
 </p>
 
 ## Waarom
@@ -46,7 +46,7 @@ Je weet dat die doos met kabels *ergens* in de berging staat. 3DPacking houdt ee
 - 🌍 **Zeven talen** — English, Русский, Українська, Deutsch, Nederlands, Français, Español — inclusief het menu en de ingebouwde help (`F1` of `?`).
 
 <p align="center">
-  <img src="screenshot-pixelart.png" alt="3DPacking in het thema PixelArt" width="900">
+  <img src="screenshot.png" alt="3DPacking: overzicht van de opslag in het thema Grafiet" width="900">
 </p>
 
 ## Downloaden

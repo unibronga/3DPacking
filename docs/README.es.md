@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="screenshot.png" alt="3DPacking: resumen del almacén con el tema Grafito" width="900">
+  <img src="hero.png" alt="3DPacking con el tema PixelArt: un trastero con estantería, cajas y maleta" width="900">
 </p>
 
 ## Para qué
@@ -46,7 +46,7 @@ Sabes que la caja de cables está *en algún sitio* del trastero. 3DPacking mant
 - 🌍 **Siete idiomas** — English, Русский, Українська, Deutsch, Nederlands, Français, Español — incluidos el menú y la ayuda integrada (`F1` o `?`).
 
 <p align="center">
-  <img src="screenshot-pixelart.png" alt="3DPacking con el tema PixelArt" width="900">
+  <img src="screenshot.png" alt="3DPacking: resumen del almacén con el tema Grafito" width="900">
 </p>
 
 ## Descargar

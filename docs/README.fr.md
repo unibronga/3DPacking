@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="screenshot.png" alt="3DPacking : vue d’ensemble dans le thème Graphite" width="900">
+  <img src="hero.png" alt="3DPacking dans le thème PixelArt : un débarras avec étagère, cartons et valise" width="900">
 </p>
 
 ## Pourquoi
@@ -46,7 +46,7 @@ Vous savez que le carton de câbles est *quelque part* dans le débarras. 3DPack
 - 🌍 **Sept langues** — English, Русский, Українська, Deutsch, Nederlands, Français, Español — y compris le menu et l’aide intégrée (`F1` ou `?`).
 
 <p align="center">
-  <img src="screenshot-pixelart.png" alt="3DPacking dans le thème PixelArt" width="900">
+  <img src="screenshot.png" alt="3DPacking : vue d’ensemble dans le thème Graphite" width="900">
 </p>
 
 ## Télécharger

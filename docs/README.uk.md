@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="screenshot.png" alt="3DPacking: огляд складу в темі «Графіт»" width="900">
+  <img src="hero.png" alt="3DPacking у темі PixelArt: комора зі стелажем, коробками й валізою" width="900">
 </p>
 
 ## Навіщо
@@ -46,7 +46,7 @@
 - 🌍 **Сім мов** — English, Русский, Українська, Deutsch, Nederlands, Français, Español — разом із меню та вбудованою довідкою (`F1` або `?`).
 
 <p align="center">
-  <img src="screenshot-pixelart.png" alt="3DPacking у темі PixelArt" width="900">
+  <img src="screenshot.png" alt="3DPacking: огляд складу в темі «Графіт»" width="900">
 </p>
 
 ## Завантажити

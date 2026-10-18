@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="screenshot-pixelart.png" alt="3DPacking в теме PixelArt" width="900">
+  <img src="hero.png" alt="3DPacking в теме PixelArt: кладовая со стеллажом, коробками и чемоданом" width="900">
 </p>
 
 ## Зачем
