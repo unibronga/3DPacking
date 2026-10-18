@@ -53,7 +53,7 @@ Vous savez que le carton de câbles est *quelque part* dans le débarras. 3DPack
 
 Récupérez **3DPacking-mac-arm64.zip** dans la [dernière version](https://github.com/unibronga/3DPacking/releases/latest), décompressez-le et placez **3DPacking.app** dans Applications.
 
-> L’application est signée ad hoc mais pas notariée par Apple. Au premier lancement, faites un clic droit dessus et choisissez **Ouvrir** — ou exécutez une fois `xattr -cr /Applications/3DPacking.app`.
+> L’application est signée avec un Developer ID et notariée par Apple — elle s’ouvre comme n’importe quelle app Mac.
 
 ## Compiler depuis les sources
 

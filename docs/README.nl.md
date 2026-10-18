@@ -53,7 +53,7 @@ Je weet dat die doos met kabels *ergens* in de berging staat. 3DPacking houdt ee
 
 Haal **3DPacking-mac-arm64.zip** uit de [nieuwste release](https://github.com/unibronga/3DPacking/releases/latest), pak het uit en zet **3DPacking.app** in Apps.
 
-> De app is ad-hoc ondertekend maar niet door Apple genotariseerd. Klik bij de eerste start met de rechtermuisknop op de app en kies **Open** — of voer eenmalig `xattr -cr /Applications/3DPacking.app` uit.
+> De app is ondertekend met een Developer ID en genotariseerd door Apple — hij opent zoals elke andere Mac-app.
 
 ## Zelf bouwen
 

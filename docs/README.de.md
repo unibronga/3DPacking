@@ -53,7 +53,7 @@ Sie wissen, dass der Karton mit den Kabeln *irgendwo* im Abstellraum steht. 3DPa
 
 Laden Sie **3DPacking-mac-arm64.zip** aus dem [neuesten Release](https://github.com/unibronga/3DPacking/releases/latest), entpacken Sie es und ziehen Sie **3DPacking.app** in „Programme“.
 
-> Die App ist ad hoc signiert, aber nicht von Apple notarisiert. Klicken Sie beim ersten Start mit der rechten Maustaste darauf und wählen Sie **Öffnen** — oder führen Sie einmal `xattr -cr /Applications/3DPacking.app` aus.
+> Die App ist mit einer Developer ID signiert und von Apple notarisiert — sie öffnet sich wie jede andere Mac-App.
 
 ## Aus dem Quellcode bauen
 

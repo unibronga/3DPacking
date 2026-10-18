@@ -16,7 +16,7 @@ npm run dist      # значок + сборка установщика
 
 После `npm run app` приложение подписывается ad-hoc (`codesign --force --deep --sign - …app`) и копируется в `/Applications/3DPacking.app` (`ditto`) — системные «Программы», именно там пользователь его ищет. Ярлык на рабочем столе — alias Finder на него.
 
-Релиз для других (подпись Developer ID + нотаризация + zip): `npm run release:mac` (`scripts/release-mac.sh`). Нужны сертификат «Developer ID Application» в связке ключей и профиль notarytool `3dpacking-notary`. Выпуск на GitHub: `gh release create vX.Y.Z release/3DPacking-mac-arm64.zip`; пуш — через deploy key (`core.sshCommand` в `.git/config`).
+Релиз для других (подпись Developer ID + нотаризация + zip): `npm run release:mac` (`scripts/release-mac.sh`). Нужны сертификат «Developer ID Application: Timchenko Konstantin (T5NKRQA9H4)» в связке ключей и профиль notarytool `3dpacking-notary`. Подпись Electron — несколько сотен файлов с меткой времени (~10 мин), нотаризация — ещё 5–15 мин; запускать в фоне. Выпуск на GitHub: `gh release create vX.Y.Z release/3DPacking-mac-arm64.zip`; пуш — через deploy key (`core.sshCommand` в `.git/config`).
 
 Самопроверка собранного приложения без показа на весь экран:
 

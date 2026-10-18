@@ -53,7 +53,7 @@ Sabes que la caja de cables está *en algún sitio* del trastero. 3DPacking mant
 
 Descarga **3DPacking-mac-arm64.zip** de la [última versión](https://github.com/unibronga/3DPacking/releases/latest), descomprímelo y mueve **3DPacking.app** a Aplicaciones.
 
-> La app tiene firma ad hoc, pero Apple no la ha notarizado. La primera vez, haz clic derecho sobre ella y elige **Abrir** — o ejecuta una vez `xattr -cr /Applications/3DPacking.app`.
+> La app está firmada con un Developer ID y notarizada por Apple — se abre como cualquier otra app de Mac.
 
 ## Compilar desde el código
 

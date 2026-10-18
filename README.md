@@ -53,7 +53,7 @@ You know there’s a box of cables *somewhere* in the storeroom. 3DPacking keeps
 
 Grab **3DPacking-mac-arm64.zip** from the [latest release](https://github.com/unibronga/3DPacking/releases/latest), unzip it and move **3DPacking.app** to Applications.
 
-> The app is ad-hoc signed but not notarized by Apple. On first launch, right-click the app and choose **Open** — or run `xattr -cr /Applications/3DPacking.app` once.
+> The app is signed with a Developer ID and notarized by Apple — it opens like any other Mac app.
 
 ## Build from source
 
