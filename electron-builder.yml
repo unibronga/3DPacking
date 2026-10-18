@@ -1,0 +1,25 @@
+# Сборка 3DPacking.app. Значок — build/icon.png (готовит `npm run icon`
+# из build/icon-source.png).
+
+appId: com.unibronga.3dpacking
+productName: 3DPacking
+copyright: Copyright © 2026 Kostiantyn
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+
+npmRebuild: false
+
+mac:
+  category: public.app-category.productivity
+  icon: build/icon.png
+  # Сертификата разработчика нет — подпись выключена, после сборки ставим ad-hoc.
+  identity: null
+  target:
+    - dir
