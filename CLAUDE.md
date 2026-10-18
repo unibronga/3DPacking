@@ -18,7 +18,7 @@ npm run dist      # значок + сборка установщика
 
 Релиз для других (подпись Developer ID + нотаризация + zip): `npm run release:mac` (`scripts/release-mac.sh`). Нужны сертификат «Developer ID Application: Timchenko Konstantin (T5NKRQA9H4)» в связке ключей и профиль notarytool `3dpacking-notary`. Подпись Electron — несколько сотен файлов с меткой времени (~10 мин), нотаризация — ещё 5–15 мин; запускать в фоне. Выпуск на GitHub: `gh release create vX.Y.Z release/3DPacking-mac-arm64.zip`; пуш — через deploy key (`core.sshCommand` в `.git/config`).
 
-Самопроверка собранного приложения без показа на весь экран:
+Самопроверка собранного приложения в окне 1600×1000 (без разворота):
 
 ```bash
 PACKING_SELFTEST=1 PACKING_WINDOWED=1 PACKING_SCREENSHOT=/tmp/app.png release/mac-arm64/3DPacking.app/Contents/MacOS/3DPacking
@@ -33,7 +33,7 @@ PACKING_SELFTEST=1 PACKING_WINDOWED=1 PACKING_SCREENSHOT=/tmp/app.png release/ma
 - `src/photos.js` — фото объектов в IndexedDB (`sklad3d-photos`), в объекте только `photo: id`; при добавлении — сжатие до 2000 px в WebP; при запуске `gc` удаляет фото без ссылок; экспорт JSON кладёт фото в `photos: { id: dataURL }`. Лайтбокс — `src/ui/lightbox.js`.
 - `src/ui/` — `sidebar.js` (дерево + свёрнутая полоска), `inspector.js` (правая панель), `modal.js`, `settings.js`, `help.js` (справка, `F1`/`?`), `dom.js` (хелпер `h()`, иконки).
 - `src/i18n.js` + `src/locales/*.js` — 7 языков (ru, en, uk, de, nl, fr, es). Ключ перевода — **русская строка из кода** (`t('Новый объект')`, подстановки `{name}`), множественное число — `tn(n, 'объект')`. Словари: `strings`, `plurals`, `help` (текст справки). Язык — `prefs.lang` (нет — язык системы), смена перезагружает страницу. Меню Electron переводится в `electron/menu-i18n.cjs` (страница шлёт язык через `window.desktop.setLang`).
-- `electron/main.cjs` — окно на весь экран, меню (⌘Z/⇧⌘Z уходят странице через `preload.cjs` → `window.desktop.onMenu`).
+- `electron/main.cjs` — окно, развёрнутое на весь экран (`maximize`, не полноэкранный режим — без отдельного стола macOS), меню (⌘Z/⇧⌘Z уходят странице через `preload.cjs` → `window.desktop.onMenu`).
 
 ## Важно не сломать
 

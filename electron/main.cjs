@@ -1,7 +1,8 @@
 /**
  * 3DPacking для десктопа: окно Electron со сборкой страницы (dist/).
  *
- * Запускается сразу на весь экран (отдельное пространство macOS).
+ * Открывается обычным окном, развёрнутым на весь экран, — без отдельного
+ * пространства macOS (полноэкранный режим остаётся в меню «Вид»).
  * Страница — обычная веб-страница без доступа к Node; из окна ей нужны
  * только команды меню и состояние «полный экран / окно» (preload.cjs).
  * Данные склада и настройки — в localStorage страницы, то есть в
@@ -26,7 +27,6 @@ function createWindow() {
     minWidth: 1000,
     minHeight: 640,
     title: '3DPacking',
-    fullscreen: !process.env.PACKING_WINDOWED,
     titleBarStyle: 'hiddenInset',
     backgroundColor: '#141418',
     show: false,
@@ -38,7 +38,11 @@ function createWindow() {
     },
   });
   win.loadFile(path.join(__dirname, '..', 'dist', 'index.html'));
-  win.once('ready-to-show', () => win.show());
+  win.once('ready-to-show', () => {
+    // PACKING_WINDOWED — для самопроверки: окно 1600×1000 без разворота.
+    if (!process.env.PACKING_WINDOWED) win.maximize();
+    win.show();
+  });
 
   const fs = () => send(win.isFullScreen() ? 'fullscreen-on' : 'fullscreen-off');
   win.on('enter-full-screen', fs);
