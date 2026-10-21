@@ -23,6 +23,12 @@ blender: блендер | fryer: аэрогриль фритюрница | iron:
 purifier: очиститель воздуха | shaver: бритва | grill: гриль | processor: комбайн | ironing: гладильная доска
 ikea: икеа икея | samsung: самсунг | philips: филипс | bosch: бош | apple: эпл эппл | sony: сони | lg: элджи лджи
 dell: делл | asus: асус | tefal: тефаль | maersk: маерск | u-haul: юхол
+beko: беко | hisense: хайсенс хисенс | tcl: тисиэль | kitchenaid: китченэйд | jbl: джибиэль | epson: эпсон
+viewsonic: вьюсоник | iiyama: ияма | de'longhi: делонги delonghi | krups: крупс | meta: мета | quest: квест шлем
+useful: контейнер ящик
+litre: литр | lid: крышка | outdoor: уличный садовый сад | seat: сиденье | footstool stool: табурет пуф | mixer: миксер
+bag: сумка мешок | trolley: тележка | cot: кроватка | basket: корзина | tray: лоток поднос | rack: стойка
+kitchen: кухня кухонный | clothes: одежда | cover: чехол | corner: угловой | airfryer: аэрогриль | hood: вытяжка
 `;
 const CAT = {
   Furniture: ['Мебель', `мебель`],

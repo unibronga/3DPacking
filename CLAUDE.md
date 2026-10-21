@@ -25,6 +25,12 @@ npm run dist      # значок + сборка установщика
 PACKING_SELFTEST=1 PACKING_WINDOWED=1 PACKING_SCREENSHOT=/tmp/app.png release/mac-arm64/3DPacking.app/Contents/MacOS/3DPacking
 ```
 
+## Каталог предметов
+
+Исходный проект каталога — `~/AI_Projects/разное/3dpacking-catalog` (своя сессия Claude: «3DPacking контейнеров база данных», `claude://claude.ai/epitaxy/local_10a9b5b5-e5eb-4723-980b-99973e8d789d`). Там скрипты сбора (`scripts/fetch_*.py` → `scripts/build.py` → `output/catalog.csv`), списки моделей для расширения (`data/*_models.txt`) и правила качества в `README.md`: ни одного выдуманного числа, у каждой строки `Source_URL`. Расширять каталог — там, затем `npm run catalog` переносит CSV сюда.
+
+На 2026-10-21: 3551 строка, 1633 позиции (без строк «в коробке»: мебель 588, электроника 331, мелкая техника 272, тара 232, крупная техника 209); IKEA 667 позиций, 143 серии. Единственная строка без `Source_URL` — «Meta Quest 3 в коробке» (размеры дал пользователь). Для новых брендов и слов из каталога добавляйте русские синонимы в `SYN` в `src/catalog.js`.
+
 ## Устройство
 
 - `src/store.js` — данные: плоский список с `parentId`, размеры и `pos` в **см** (угол относительно внутреннего угла родителя). Undo/redo — снимки; жест мышью (`source: 'gesture:…'`) = один шаг. Расстановка контейнера: `arrange: 'manual' | 'auto'`.
