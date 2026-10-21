@@ -636,6 +636,39 @@ button:focus-visible { outline: 2px solid rgb(var(--acc) / 0.75); outline-offset
 .fit.ok { color: var(--ok-text); background: rgba(68, 227, 160, 0.08); border-color: rgba(68, 227, 160, 0.25); }
 .fit.warn { color: var(--bad-text); background: rgba(255, 92, 122, 0.09); border-color: rgba(255, 92, 122, 0.3); }
 
+/* ── подсказки из каталога под полем названия ─────────────────────────── */
+.ac { position: relative; }
+.modal-body:has(.ac-pop.open) { overflow: visible; }
+.ac-pop {
+  position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 5;
+  display: none; flex-direction: column; padding: 6px;
+  border-radius: 14px; border: 1px solid var(--line);
+  background: rgb(var(--glass) / 0.98);
+  box-shadow: 0 24px 60px -18px rgb(var(--shade) / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.1);
+}
+.ac-pop.open { display: flex; animation: popIn 0.16s var(--ease) both; }
+.ac-head { display: flex; align-items: center; justify-content: space-between; padding: 4px 10px 6px; font-size: 11px; color: var(--text-3); }
+.ac-head b { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text-2); }
+.ac-list { display: flex; flex-direction: column; gap: 2px; max-height: 236px; overflow: auto; overscroll-behavior: contain; }
+.ac-row { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 10px; cursor: pointer; }
+.ac-row.on { background: linear-gradient(160deg, rgb(var(--acc2) / 0.14), rgb(var(--acc) / 0.2)); box-shadow: inset 0 0 0 1px rgb(var(--acc) / 0.45); }
+.ac-ico { width: 30px; height: 30px; flex: none; display: grid; place-items: center; border-radius: 9px; background: var(--field); color: var(--text-2); }
+.ac-row.on .ac-ico { background: var(--grad); color: #fff; }
+.ac-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.ac-txt b, .ac-txt small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ac-txt b { font-size: 13px; font-weight: 600; }
+.ac-txt small { font-size: 11px; color: var(--text-3); }
+.ac-txt mark { background: rgb(var(--acc) / 0.24); color: inherit; border-radius: 3px; padding: 0 1px; }
+.ac-size { flex: none; font-size: 11.5px; color: var(--text-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ac-add {
+  display: none; flex: none; align-items: center; gap: 3px; height: 24px; padding: 0 9px 0 7px;
+  border-radius: 8px; background: var(--grad); color: #fff; font-size: 11.5px; font-weight: 600;
+}
+.ac-row.on .ac-add { display: inline-flex; }
+.ac-foot { padding: 6px 10px 2px; font-size: 10.5px; color: var(--text-3); border-top: 1px solid var(--line); margin-top: 4px; }
+.dims.filled .input { animation: dimFill 1s ease; }
+@keyframes dimFill { 0%, 35% { border-color: rgb(var(--acc) / 0.7); box-shadow: 0 0 0 3px rgb(var(--acc) / 0.18); } }
+
 /* ── тосты ────────────────────────────────────────────────────────────── */
 #toasts { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none; }
 .toast {

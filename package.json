@@ -22,6 +22,7 @@
     "app": "npm run build && electron-builder --mac --dir --publish never",
     "dist": "npm run icon && npm run build && electron-builder --mac --publish never",
     "i18n": "node scripts/i18n-keys.mjs --check",
+    "catalog": "cp \"$HOME/AI_Projects/разное/3dpacking-catalog/output/catalog.csv\" src/data/catalog.csv",
     "release:mac": "scripts/release-mac.sh"
   },
   "devDependencies": {

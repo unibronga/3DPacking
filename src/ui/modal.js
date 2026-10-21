@@ -3,6 +3,7 @@
 import * as store from '../store.js';
 import { h, icon, iconEl, fmt, fmtVol } from './dom.js';
 import { t } from '../i18n.js';
+import { catalogSuggest } from './suggest.js';
 
 const root = () => document.getElementById('modal-root');
 
@@ -14,7 +15,10 @@ export function openModal({ title, subtitle, icon: ico, body, actions, width = 5
     setTimeout(() => back.remove(), 180);
     onClose?.();
   };
-  const onKey = (e) => { if (e.key === 'Escape') { e.stopPropagation(); close(); } };
+  const onKey = (e) => {
+    if (e.key !== 'Escape' || e.target.getAttribute?.('aria-expanded') === 'true') return; // Esc в открытом списке подсказок закрывает список
+    e.stopPropagation(); close();
+  };
   document.addEventListener('keydown', onKey, true);
   back.addEventListener('pointerdown', (e) => { if (e.target === back) close(); });
   const card = h('div', { class: 'modal', role: 'dialog', 'aria-modal': 'true', style: { width: `min(${width}px, calc((100vw - 32px) / var(--ui)))` } },
@@ -63,12 +67,22 @@ export function createObjectModal({ parentId = null, onCreated }) {
     size: null,
     opacity: null,
     nameTouched: false,
+    source: null, // предмет из каталога, если выбран в подсказках
   };
   st.size = { ...st.preset.size };
   st.opacity = st.preset.opacity;
 
   const name = h('input', { class: 'input big', placeholder: t('Например, «Коробка с книгами»'), spellcheck: 'false' });
   name.addEventListener('input', () => { st.nameTouched = !!name.value; });
+  // Выбор из каталога: название, габариты и тип (коробка/тара — «Коробка», остальное — «Предмет»).
+  const nameBox = catalogSuggest(name, (doc, title) => {
+    name.value = title;
+    st.nameTouched = true;
+    st.source = doc;
+    applyPreset(PRESETS[doc.boxed || doc.container ? 3 : 5], doc.size);
+    dimsBox.classList.remove('filled');
+    requestAnimationFrame(() => dimsBox.classList.add('filled'));
+  });
 
   const dimIn = (k, label) => {
     const i = h('input', { class: 'input', inputmode: 'decimal', value: fmt(st.size[k]) });
@@ -86,18 +100,20 @@ export function createObjectModal({ parentId = null, onCreated }) {
       h('span', { class: 'p-ico', html: icon(p.icon, 20) }),
       h('b', {}, t(p.name)),
       h('small', {}, `${p.size.x}×${p.size.y}×${p.size.z}`));
-    b.addEventListener('click', () => {
-      st.preset = p;
-      st.size = { ...p.size };
-      st.opacity = p.opacity;
-      transp.checked = p.opacity < 1;
-      if (!st.nameTouched) name.placeholder = t('Например, «{name}»', { name: t(p.name) });
-      renderDims();
-      refresh();
-    });
+    b.addEventListener('click', () => { st.source = null; applyPreset(p, p.size); });
     b._p = p;
     return b;
   }));
+
+  const applyPreset = (p, size) => {
+    st.preset = p;
+    st.size = { ...size };
+    st.opacity = p.opacity;
+    transp.checked = p.opacity < 1;
+    if (!st.nameTouched) name.placeholder = t('Например, «{name}»', { name: t(p.name) });
+    renderDims();
+    refresh();
+  };
 
   const parentSel = h('select', { class: 'select' }, h('option', { value: '' }, t('— На пол, как отдельный контейнер')));
   const walk = (pid, depth) => { for (const c of store.children(pid)) { parentSel.append(h('option', { value: c.id }, `${' '.repeat(depth)}${c.name}`)); walk(c.id, depth + 1); } };
@@ -140,6 +156,7 @@ export function createObjectModal({ parentId = null, onCreated }) {
   refresh();
 
   const submit = (close) => {
+    const src = st.source;
     const res = store.add({
       name: name.value || t(st.preset.name),
       kind: st.preset.kind,
@@ -147,6 +164,7 @@ export function createObjectModal({ parentId = null, onCreated }) {
       parentId: st.parentId,
       color: st.color,
       opacity: st.opacity,
+      props: src ? [{ key: t('Бренд'), value: src.brand }, { key: t('Источник'), value: src.url }].filter((p) => p.value) : [],
     });
     close();
     onCreated?.(res);
@@ -154,7 +172,7 @@ export function createObjectModal({ parentId = null, onCreated }) {
 
   const body = h('div', { class: 'create' },
     h('div', { class: 'field' }, h('span', {}, t('Тип')), presetBox),
-    h('label', { class: 'field' }, h('span', {}, t('Название')), name),
+    h('label', { class: 'field' }, h('span', {}, t('Название')), nameBox),
     h('div', { class: 'field' }, h('span', {}, t('Габариты')), dimsBox),
     h('label', { class: 'field' }, h('span', {}, t('Положить в')), parentSel),
     h('div', { class: 'field two' },
