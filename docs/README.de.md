@@ -37,7 +37,8 @@ Sie wissen, dass der Karton mit den Kabeln *irgendwo* im Abstellraum steht. 3DPa
 ## Funktionen
 
 - 🧱 **Verschachtelte Container** — Räume, Schränke, Regale, Kartons und Dinge, beliebig tief verschachtelt. Füllringe zeigen, wie viel Platz belegt ist.
-- 🖱️ **Manuelles Platzieren** — ziehen Sie Dinge direkt in der Szene: Sie fallen auf den Boden und aufeinander, rasten an Wänden und Nachbarn ein und wandern in einen Schrank oder Karton, wenn Sie sie darüber loslassen.
+- 📚 **Katalog echter Produkte** — tippen Sie einen Namen und wählen Sie aus über 1600 echten Dingen und ihren Originalkartons (IKEA, Samsung, LG, Bosch, Philips, Umzugskartons, Paletten …): Die echten Maße werden übernommen. Die Suche verzeiht Tippfehler und eine falsche Tastaturbelegung. Jedes Maß stammt aus einer offiziellen Quelle.
+- 🖱️ **Manuelles Platzieren** — ziehen Sie Dinge direkt in der Szene: Sie fallen auf den Boden und aufeinander, rasten an Wänden und Nachbarn ein und wandern in einen Schrank oder Karton, wenn Sie sie darüber loslassen. **Um 90° drehen** und **Auf die Seite** bringen ein Ding in jede seiner sechs Lagen.
 - 📦 **Dichtes Auto-Packen** — 3D-Bin-Packing: Extrempunkte, mindestens 70 % Auflage, Drehungen, „leere“ Gegenstände dürfen auf der Seite liegen, Reihenfolge-Heuristiken und lokale Suche im Zeitbudget. Schalten Sie einen Container auf **Auto**, und er packt sich bei jeder Änderung neu.
 - 🔍 **Einfache Navigation** — Auswahl durch transparente Wände, Kameraflug zu jedem Objekt, Ansichten 3D / oben / vorne / Seite, Brotkrumen, Suche.
 - 📷 **Fotos, Notizen und eigene Felder** — Foto auf ein Objekt einfügen oder ziehen (lokal gespeichert, als WebP komprimiert), Notizen und eigene Felder hinzufügen.

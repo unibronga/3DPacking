@@ -37,7 +37,8 @@ Vous savez que le carton de câbles est *quelque part* dans le débarras. 3DPack
 ## Fonctionnalités
 
 - 🧱 **Conteneurs imbriqués** — pièces, armoires, étagères, cartons et objets, imbriqués aussi profondément que vous voulez. Des anneaux de remplissage montrent la place occupée.
-- 🖱️ **Placement manuel** — faites glisser les objets directement dans la scène : ils tombent au sol et les uns sur les autres, s’aimantent aux parois et aux voisins, et entrent dans une armoire ou un carton quand vous les lâchez au-dessus.
+- 📚 **Catalogue de produits réels** — commencez à taper un nom et choisissez parmi plus de 1600 objets réels et leurs cartons d’origine (IKEA, Samsung, LG, Bosch, Philips, cartons de déménagement, palettes…) : les vraies dimensions se remplissent toutes seules. La recherche pardonne les fautes de frappe et une mauvaise disposition du clavier. Chaque dimension vient d’une source officielle.
+- 🖱️ **Placement manuel** — faites glisser les objets directement dans la scène : ils tombent au sol et les uns sur les autres, s’aimantent aux parois et aux voisins, et entrent dans une armoire ou un carton quand vous les lâchez au-dessus. **Pivoter de 90°** et **Sur le côté** mettent un objet dans chacune de ses six positions.
 - 📦 **Rangement automatique compact** — un algorithme de bin packing 3D : points extrêmes, au moins 70 % d’appui, rotations, objets « vides » couchés sur le côté, heuristiques d’ordre et recherche locale dans un budget de temps. Passez un conteneur en **Auto** et il se re-range à chaque modification.
 - 🔍 **Navigation aisée** — sélection à travers les parois transparentes, caméra qui vole vers n’importe quel objet, vues 3D / dessus / face / côté, fil d’Ariane, recherche.
 - 📷 **Photos, notes et champs personnalisés** — collez ou glissez une photo sur n’importe quel objet (stockée localement, compressée en WebP), ajoutez des notes et vos propres champs.
