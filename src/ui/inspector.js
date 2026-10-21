@@ -177,7 +177,10 @@ export class Inspector {
         this.num(t('Г'), it.size.z, (v) => up({ size: { z: v } }), { min: 1 })),
       h('div', { class: 'row-between' },
         h('small', { class: 'muted' }, t('Объём {vol}', { vol: fmtVol(store.volume(it)) })),
-        h('button', { class: 'btn btn-ghost sm', onclick: () => up({ size: { x: it.size.z, z: it.size.x } }) }, iconEl('rotate', 15), t('Повернуть 90°')))));
+        h('div', { class: 'btn-pair' },
+          h('button', { class: 'btn btn-ghost sm', title: t('Ширина ↔ глубина'), 'aria-label': t('Повернуть 90°'), onclick: () => up({ size: { x: it.size.z, z: it.size.x } }) }, iconEl('rotate', 15), t('Повернуть 90°')),
+          // «На бок»: высота ↔ ширина; вместе с поворотом даёт все шесть положений.
+          h('button', { class: 'btn btn-ghost sm', title: t('Высота ↔ ширина'), 'aria-label': t('На бок'), onclick: () => up({ size: { x: it.size.y, y: it.size.x } }) }, iconEl('tilt', 15), t('На бок'))))));
 
     // Положение
     const parentSel = h('select', { class: 'select' },

@@ -445,6 +445,7 @@ button:focus-visible { outline: 2px solid rgb(var(--acc) / 0.75); outline-offset
 .num.disabled .k { cursor: default; }
 
 .row-between { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.btn-pair { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 2px; }
 .muted { color: var(--text-3); }
 .small { font-size: 12px; margin: 0; }
 

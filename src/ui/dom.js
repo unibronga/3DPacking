@@ -51,6 +51,7 @@ const P = {
   undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
   redo: '<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',
   rotate: '<path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/>',
+  tilt: '<rect x="3.5" y="13" width="17" height="7.5" rx="1.5"/><path d="M6 10V5.5A1.5 1.5 0 0 1 7.5 4H15"/><path d="m12.5 1.5 2.5 2.5-2.5 2.5"/>',
   wand: '<path d="m4 20 11-11M14 4v3M12.5 5.5h3M19 9v3M17.5 10.5h3M18 3.5l.8.8"/><path d="m13.5 8 2.5 2.5"/>',
   close: '<path d="M6 6l12 12M18 6 6 18"/>',
   check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
