@@ -4,6 +4,7 @@ release/
 .DS_Store
 .claude/
 
-# Рабочие документы сессий (см. PLAN.md)
+# Рабочие документы Claude (см. PLAN.md) — в репозиторий не уходят
+CLAUDE.md
 PLAN.md
 SESSIONS.md
