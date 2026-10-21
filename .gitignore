@@ -3,3 +3,7 @@ dist/
 release/
 .DS_Store
 .claude/
+
+# Рабочие документы сессий (см. PLAN.md)
+PLAN.md
+SESSIONS.md
