@@ -15,6 +15,12 @@ const CM = 0.01;
 const WALL_PAD = 0.003; // м
 const EDGE_GEO = new THREE.EdgesGeometry(new THREE.BoxGeometry(1, 1, 1));
 const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+// Зум колёсиком: доля расстояния на единицу deltaY (у OrbitControls ~0,0005 —
+// мышь на macOS шлёт по 1–3 за событие, и зум почти стоит). Крупные порции
+// (быстрое вращение, тачпад, щелчок по 100) растут как логарифм, иначе камера улетает.
+const ZOOM_RATE = 0.005;
+const ZOOM_CAP = 4;
+const ZOOM_TAU = 90; // мс, время сглаживания
 const fmt = (v) => (Math.round(v * 10) / 10).toString().replace('.', ',');
 
 // Сетка как в 3D-редакторе: мелкая клетка 10 см, крупная 1 м, оси X/Z цветом,
@@ -115,7 +121,9 @@ export class Viewport {
     c.minDistance = 0.15;
     c.maxDistance = 150;
     c.screenSpacePanning = true;
+    c.enableZoom = false; // свой зум — wheelZoom(), со сглаживанием
     c.addEventListener('start', () => { this.anim = null; });
+    r.domElement.addEventListener('wheel', (e) => this.wheelZoom(e), { passive: false });
 
     this.hemi = new THREE.HemisphereLight(0xe2dbff, 0x1c1236, 0.75);
     scene.add(this.hemi);
@@ -196,6 +204,7 @@ export class Viewport {
       this.needsRender = true;
     }
     if (this.moving.size) this.stepMoves();
+    if (this.zoom) this.stepZoom();
     if (this.controls.update()) this.needsRender = true;
     if (!this.needsRender) return;
     this.needsRender = false;
@@ -614,7 +623,36 @@ export class Viewport {
   }
 
   // ── камера ────────────────────────────────────────────────────────────
+  // Колёсико задаёт цель — расстояние до центра вращения, а камера плавно
+  // догоняет её в tick(): неровный поток мелких событий не даёт рывков.
+  wheelZoom(e) {
+    e.preventDefault();
+    if (!this.controls.enabled || this.anim) return;
+    const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1);
+    const step = Math.sign(dy) * ZOOM_CAP * Math.log1p(Math.abs(dy) / ZOOM_CAP) * ZOOM_RATE;
+    const c = this.controls;
+    const goal = (this.zoom?.goal ?? this.camera.position.distanceTo(c.target)) * Math.exp(step);
+    // время не сбрасываем: иначе кадр сразу после события стоит на месте
+    this.zoom = { goal: Math.min(c.maxDistance, Math.max(c.minDistance, goal)), t: this.zoom?.t ?? performance.now() };
+    this.needsRender = true;
+  }
+
+  stepZoom() {
+    const z = this.zoom, c = this.controls;
+    const now = performance.now();
+    const k = 1 - Math.exp(-(now - z.t) / ZOOM_TAU);
+    z.t = now;
+    const off = this.camera.position.clone().sub(c.target);
+    const d = off.length();
+    // в логарифме — одинаковая скорость вблизи и издалека
+    const next = Math.exp(Math.log(d) + (Math.log(z.goal) - Math.log(d)) * k);
+    if (Math.abs(next - z.goal) < z.goal * 1e-4) this.zoom = null;
+    this.camera.position.copy(c.target).add(off.setLength(this.zoom ? next : z.goal));
+    this.needsRender = true;
+  }
+
   flyTo(target, pos, dur = 750) {
+    this.zoom = null;
     this.anim = { t0: performance.now(), dur, fromT: this.controls.target.clone(), toT: target.clone(), fromP: this.camera.position.clone(), toP: pos.clone() };
     this.needsRender = true;
   }
@@ -628,6 +666,7 @@ export class Viewport {
     const d = (dir || this.camera.position.clone().sub(this.controls.target)).clone().normalize();
     const pos = sphere.center.clone().add(d.multiplyScalar(dist));
     if (instant) {
+      this.zoom = null;
       this.controls.target.copy(sphere.center);
       this.camera.position.copy(pos);
       this.needsRender = true;
