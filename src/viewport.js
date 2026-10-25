@@ -501,6 +501,12 @@ export class Viewport {
       });
     });
     el.addEventListener('pointerleave', () => { if (this.hoverId) { this.hoverId = null; this.refreshLook(); } });
+    // Shift нажали или отпустили посреди перетаскивания — пересчитать, не дожидаясь движения мыши
+    const shift = (e) => {
+      if (e.key === 'Shift' && this.drag?.last) this.updateDrag({ ...this.drag.last, shiftKey: e.type === 'keydown' });
+    };
+    addEventListener('keydown', shift);
+    addEventListener('keyup', shift);
   }
 
   // ── перетаскивание мышью ──────────────────────────────────────────────
@@ -537,10 +543,14 @@ export class Viewport {
 
   // Куда упадёт предмет: самый глубокий контейнер, над которым его центр.
   // Если самый глубокий контейнер под центром слишком мал — он в reject.
-  dropTarget(id, cx, cz, s) {
+  // Без Shift (into = false) — только нынешний контейнер и его предки: вещь
+  // можно вынести наружу, но не вложить в соседний ящик — она встанет сверху.
+  dropTarget(id, cx, cz, s, into) {
+    const home = store.get(id).parentId;
     let best = null, depth = -1, reject = null, rdepth = -1;
     for (const c of store.all()) {
       if (c.id === id || store.isAncestor(id, c.id) || !store.isVisible(c.id)) continue;
+      if (!into && c.id !== home && !store.isAncestor(c.id, home)) continue;
       const box = !c.parentId || c.opacity < 0.999 || store.children(c.id).length > 0;
       if (!box) continue;
       const w = store.worldPos(c.id);
@@ -558,10 +568,11 @@ export class Viewport {
     const it = store.get(d.id);
     const hit = it && this.rayPlane(e, d.planeY);
     if (!hit) return;
+    d.last = { clientX: e.clientX, clientY: e.clientY };
     const s = it.size;
     const wx = d.w0.x + (hit.x - d.hit0.x) / CM;
     const wz = d.w0.z + (hit.z - d.hit0.z) / CM;
-    const { best, reject } = this.dropTarget(d.id, wx + s.x / 2, wz + s.z / 2, s);
+    const { best, reject } = this.dropTarget(d.id, wx + s.x / 2, wz + s.z / 2, s, e.shiftKey);
     const dest = best || store.get(it.parentId);
     const dw = store.worldPos(dest.id);
     const sibs = store.children(dest.id).filter((c) => c.id !== d.id && store.isVisible(c.id));
@@ -578,11 +589,16 @@ export class Viewport {
     };
     const x = axis('x', wx - dw.x);
     const z = axis('z', wz - dw.z);
-    // «гравитация»: встаёт на самый высокий сплошной предмет под собой
-    let y = 0;
+    // «гравитация»: встаёт на самый высокий соседний предмет под собой —
+    // и на прозрачный ящик тоже (внутрь — только с Shift)
+    let y = 0, under = null;
     for (const c of sibs) {
-      if (c.opacity < 0.999) continue;
-      if (x < c.pos.x + c.size.x - 0.01 && x + s.x > c.pos.x + 0.01 && z < c.pos.z + c.size.z - 0.01 && z + s.z > c.pos.z + 0.01) y = Math.max(y, c.pos.y + c.size.y);
+      if (x < c.pos.x + c.size.x - 0.01 && x + s.x > c.pos.x + 0.01 && z < c.pos.z + c.size.z - 0.01 && z + s.z > c.pos.z + 0.01 && c.pos.y + c.size.y > y) { y = c.pos.y + c.size.y; under = c; }
+    }
+    // раз за сессию подсказать про Shift, когда вещь встала на ящик, в который влезает
+    if (!e.shiftKey && under && !this.shiftHinted && (under.opacity < 0.999 || store.children(under.id).length) && s.x <= under.size.x && s.y <= under.size.y && s.z <= under.size.z) {
+      this.shiftHinted = true;
+      this.onNotice?.(t('Чтобы положить внутрь «{target}», держите Shift', { target: under.name }), 'info');
     }
     const patch = {};
     if (dest.id !== it.parentId) patch.parentId = dest.id;

@@ -38,7 +38,7 @@ Je weet dat die doos met kabels *ergens* in de berging staat. 3DPacking houdt ee
 
 - 🧱 **Geneste containers** — kamers, kasten, stellingkasten, dozen en spullen, zo diep genest als je wilt. Vulringen tonen hoeveel ruimte in gebruik is.
 - 📚 **Catalogus van echte producten** — begin een naam te typen en kies uit 1600+ echte spullen en hun originele dozen (IKEA, Samsung, LG, Bosch, Philips, verhuisdozen, pallets…): de echte afmetingen vullen zich vanzelf in. Zoeken vergeeft typfouten en een verkeerde toetsenbordindeling. Elke maat komt uit een officiële bron.
-- 🖱️ **Handmatig plaatsen** — sleep spullen direct in de scène: ze vallen op de vloer en op elkaar, klikken vast aan wanden en buren en gaan in een kast of doos als je ze erboven loslaat. **90° draaien** en **Op zijn kant** zetten iets in elk van zijn zes standen.
+- 🖱️ **Handmatig plaatsen** — sleep spullen direct in de scène: ze vallen op de vloer en op elkaar, klikken vast aan wanden en buren en komen bovenop een doos — of gaan erin als je bij het loslaten **Shift** ingedrukt houdt. **90° draaien** en **Op zijn kant** zetten iets in elk van zijn zes standen.
 - 📦 **Compact automatisch inpakken** — 3D bin packing: extreme punten, minstens 70 % steun, rotaties, ‘lege’ voorwerpen mogen op hun kant, volgorde-heuristieken en lokaal zoeken binnen een tijdsbudget. Zet een container op **Auto** en hij pakt zich bij elke wijziging opnieuw in.
 - 🔍 **Makkelijk navigeren** — selecteren door transparante wanden, de camera naar elk object laten vliegen, weergaven 3D / boven / voor / zijkant, kruimelpad, zoeken.
 - 📷 **Foto’s, notities en eigen velden** — plak of sleep een foto op elk object (lokaal bewaard, gecomprimeerd naar WebP), voeg notities en eigen velden toe.

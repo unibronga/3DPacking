@@ -226,6 +226,7 @@ export default {
     '«{name}» перемещён на пол': '“{name}” moved to the floor',
     '«{name}» не помещается на пол — отмечен красным': '“{name}” doesn’t fit on the floor — marked red',
     '«{name}» не влезает в «{target}»': '“{name}” doesn’t fit in “{target}”',
+    'Чтобы положить внутрь «{target}», держите Shift': '“{target}”: hold Shift to put it inside',
     // подсказки из каталога
     'Мебель': 'Furniture',
     'Электроника': 'Electronics',
@@ -276,7 +277,7 @@ export default {
         title: 'Arranging',
         items: [
           'Every container has two modes: **Manual** and **Auto**. The switch is in the toolbar above the scene and in the right panel.',
-          '**Manual**: drag things with the mouse right in the scene. They land on the floor and on each other and snap to walls and neighbours. Release a thing over a cabinet or box and it goes inside.',
+          '**Manual**: drag things with the mouse right in the scene. They land on the floor and on each other and snap to walls and neighbours. To put a thing inside a cabinet or box, hold `Shift` and release it over them; without `Shift` it stands on top.',
           '**Auto**: contents repack tightly by themselves on every change — when you add, remove or resize something.',
           '**Arrange** or `A` packs the selected container tightly once: every thing gets at least 70 % support and is rotated when needed. If something doesn’t fit, the app tells you what.',
           'Turn on **Can lie on its side** if a thing may be laid on its side — arranging will find more options.',

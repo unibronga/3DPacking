@@ -226,6 +226,7 @@ export default {
     '«{name}» перемещён на пол': '„{name}“ auf den Boden verschoben',
     '«{name}» не помещается на пол — отмечен красным': '„{name}“ passt nicht auf den Boden — rot markiert',
     '«{name}» не влезает в «{target}»': '„{name}“ passt nicht in „{target}“',
+    'Чтобы положить внутрь «{target}», держите Shift': 'Halten Sie Shift, um es in „{target}“ zu legen',
     // подсказки из каталога
     'Мебель': 'Möbel',
     'Электроника': 'Elektronik',
@@ -276,7 +277,7 @@ export default {
         title: 'Anordnen',
         items: [
           'Jeder Container hat zwei Modi: **Manuell** und **Auto**. Der Schalter sitzt in der Werkzeugleiste über der Szene und in der rechten Leiste.',
-          '**Manuell**: Ziehen Sie Dinge mit der Maus direkt in der Szene. Sie landen auf dem Boden und aufeinander und rasten an Wänden und Nachbarn ein. Lassen Sie ein Ding über einem Schrank oder Karton los, wandert es hinein.',
+          '**Manuell**: Ziehen Sie Dinge mit der Maus direkt in der Szene. Sie landen auf dem Boden und aufeinander und rasten an Wänden und Nachbarn ein. Um ein Ding in einen Schrank oder Karton zu legen, halten Sie `Shift` gedrückt und lassen es darüber los; ohne `Shift` steht es obendrauf.',
           '**Auto**: Der Inhalt packt sich bei jeder Änderung selbst dicht neu — wenn Sie etwas hinzufügen, entfernen oder die Größe ändern.',
           '**Anordnen** oder `A` packt den ausgewählten Container einmalig dicht: Jedes Ding hat mindestens 70 % Auflage und wird bei Bedarf gedreht. Passt etwas nicht, sagt das Programm, was.',
           'Aktivieren Sie **Darf auf der Seite liegen**, wenn ein Ding seitlich liegen darf — dann findet die Anordnung mehr Möglichkeiten.',

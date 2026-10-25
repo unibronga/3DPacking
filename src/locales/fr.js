@@ -226,6 +226,7 @@ export default {
     '«{name}» перемещён на пол': '« {name} » posé au sol',
     '«{name}» не помещается на пол — отмечен красным': '« {name} » ne tient pas au sol — marqué en rouge',
     '«{name}» не влезает в «{target}»': '« {name} » ne rentre pas dans « {target} »',
+    'Чтобы положить внутрь «{target}», держите Shift': 'Maintenez Maj pour le ranger dans « {target} »',
     // подсказки из каталога
     'Мебель': 'Meubles',
     'Электроника': 'Électronique',
@@ -276,7 +277,7 @@ export default {
         title: 'Rangement',
         items: [
           'Chaque conteneur a deux modes : **Manuel** et **Auto**. Le sélecteur se trouve dans la barre d’outils au-dessus de la scène et dans le panneau de droite.',
-          '**Manuel** : faites glisser les affaires à la souris directement dans la scène. Elles se posent au sol et les unes sur les autres et s’aimantent aux parois et aux voisins. Lâchez-en une au-dessus d’une armoire ou d’un carton et elle s’y range.',
+          '**Manuel** : faites glisser les affaires à la souris directement dans la scène. Elles se posent au sol et les unes sur les autres et s’aimantent aux parois et aux voisins. Pour ranger une affaire dans une armoire ou un carton, maintenez `Maj` et lâchez-la au-dessus ; sans `Maj`, elle se pose dessus.',
           '**Auto** : le contenu se re-range tout seul de façon compacte à chaque modification — ajout, retrait ou changement de taille.',
           '**Ranger** ou `A` range une fois le conteneur sélectionné de façon compacte : chaque objet repose sur au moins 70 % de sa base et pivote si besoin. Si quelque chose ne rentre pas, l’application vous dit quoi.',
           'Activez **Peut être couché sur le côté** si un objet peut être posé sur le flanc — le rangement trouvera plus de solutions.',

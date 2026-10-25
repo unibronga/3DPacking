@@ -226,6 +226,7 @@ export default {
     '«{name}» перемещён на пол': '«{name}» movido al suelo',
     '«{name}» не помещается на пол — отмечен красным': '«{name}» no cabe en el suelo — marcado en rojo',
     '«{name}» не влезает в «{target}»': '«{name}» no cabe en «{target}»',
+    'Чтобы положить внутрь «{target}», держите Shift': 'Mantén Mayús para meterlo en «{target}»',
     // подсказки из каталога
     'Мебель': 'Muebles',
     'Электроника': 'Electrónica',
@@ -276,7 +277,7 @@ export default {
         title: 'Colocación',
         items: [
           'Cada contenedor tiene dos modos: **Manual** y **Auto**. El selector está en la barra de herramientas sobre la escena y en el panel derecho.',
-          '**Manual**: arrastra las cosas con el ratón directamente en la escena. Se apoyan en el suelo y unas sobre otras y se ajustan a paredes y vecinos. Suelta una sobre un armario o una caja y quedará dentro.',
+          '**Manual**: arrastra las cosas con el ratón directamente en la escena. Se apoyan en el suelo y unas sobre otras y se ajustan a paredes y vecinos. Para meter una cosa en un armario o una caja, mantén `Mayús` y suéltala encima; sin `Mayús` quedará encima.',
           '**Auto**: el contenido se recoloca solo de forma compacta con cada cambio — al añadir, quitar o cambiar el tamaño de algo.',
           '**Colocar** o `A` coloca una vez el contenedor seleccionado de forma compacta: cada cosa se apoya al menos en un 70 % y se gira si hace falta. Si algo no cabe, el programa te dice qué.',
           'Activa **Se puede tumbar de lado** si una cosa puede ir de lado — la colocación encontrará más opciones.',

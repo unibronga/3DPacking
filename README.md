@@ -38,7 +38,7 @@ You know there’s a box of cables *somewhere* in the storeroom. 3DPacking keeps
 
 - 🧱 **Nested containers** — rooms, cabinets, shelving units, boxes and things, nested as deep as you like. Fill rings show how much space is used.
 - 📚 **Catalog of real products** — start typing a name and pick from 1,600+ real things and their factory boxes (IKEA, Samsung, LG, Bosch, Philips, moving boxes, pallets…): the real dimensions fill in by themselves. Search forgives typos, understands Russian and a wrong keyboard layout. Every size comes from an official source.
-- 🖱️ **Manual placement** — drag things right in the scene: they fall onto the floor and onto each other, snap to walls and neighbours, and drop into a cabinet or box when you release them over it. **Rotate 90°** and **On its side** turn a thing into any of its six positions.
+- 🖱️ **Manual placement** — drag things right in the scene: they fall onto the floor and onto each other, snap to walls and neighbours, and stand on top of a box — or go inside it if you hold **Shift** as you release. **Rotate 90°** and **On its side** turn a thing into any of its six positions.
 - 📦 **Tight auto-packing** — a 3D bin packer (extreme points, at least 70 % support, rotations, tilting “empty” items on their side, ordering heuristics and local search within a time budget). Switch a container to **Auto** and it repacks on every change.
 - 🔍 **Easy to navigate** — select through transparent walls, fly the camera to anything, 3D / top / front / side views, breadcrumbs, search.
 - 📷 **Photos, notes and custom fields** — paste or drop a photo onto any object (stored locally, compressed to WebP), add notes and your own fields.

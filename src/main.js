@@ -240,7 +240,7 @@ store.on((type, d) => {
   }
 });
 vp.onPick = (id, opts) => store.select(id, opts);
-vp.onNotice = (text) => toast(text, 'warn');
+vp.onNotice = (text, kind = 'warn') => toast(text, kind);
 
 vp.sync();
 sidebar.render();

@@ -226,6 +226,7 @@ export default {
     '«{name}» перемещён на пол': '‘{name}’ op de vloer gezet',
     '«{name}» не помещается на пол — отмечен красным': '‘{name}’ past niet op de vloer — rood gemarkeerd',
     '«{name}» не влезает в «{target}»': '‘{name}’ past niet in ‘{target}’',
+    'Чтобы положить внутрь «{target}», держите Shift': 'Houd Shift ingedrukt om het in ‘{target}’ te leggen',
     // подсказки из каталога
     'Мебель': 'Meubels',
     'Электроника': 'Elektronica',
@@ -276,7 +277,7 @@ export default {
         title: 'Schikken',
         items: [
           'Elke container heeft twee modi: **Handmatig** en **Auto**. De schakelaar zit in de werkbalk boven de scène en in het rechterpaneel.',
-          '**Handmatig**: sleep spullen met de muis direct in de scène. Ze komen op de vloer en op elkaar terecht en klikken vast aan wanden en buren. Laat iets los boven een kast of doos en het gaat erin.',
+          '**Handmatig**: sleep spullen met de muis direct in de scène. Ze komen op de vloer en op elkaar terecht en klikken vast aan wanden en buren. Wil je iets in een kast of doos leggen, houd dan `Shift` ingedrukt en laat het erboven los; zonder `Shift` komt het erbovenop.',
           '**Auto**: de inhoud wordt bij elke wijziging vanzelf compact ingepakt — als je iets toevoegt, weghaalt of van formaat verandert.',
           '**Schikken** of `A` pakt de geselecteerde container één keer compact in: elk ding rust voor minstens 70 % en wordt zo nodig gedraaid. Past iets niet, dan zegt het programma wat.',
           'Zet **Mag op zijn kant liggen** aan als iets op zijn kant mag — dan vindt het schikken meer mogelijkheden.',
